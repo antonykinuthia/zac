@@ -7,6 +7,7 @@ import { ScrollTrigger} from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import Lenis from 'lenis';
 import Gallery from './components/Gallery';
+import PriceCard from './components/PriceCard';
 // import Projects from './components/Projects';
 
 
@@ -204,8 +205,9 @@ function App() {
 
       </section>
 
-        <Gallery/>
+        {/* <Gallery/> */}
         {/* <Projects/> */}
+        <PriceCard/>
 
         <section className='gallerie'>
           <h1>Gallery</h1>

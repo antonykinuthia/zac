@@ -5,7 +5,7 @@ import { gsap, ScrollTrigger, useGSAP } from "../lib/Gsap";
 type Card = { element: HTMLDivElement; centerX: number; centerY: number };
 
 const config = {
-  cardCount: 9,
+  cardCount: 1,
   cardWidth: 250,
   cardHeight: 300,
   animationDuration: 0.75,
@@ -234,7 +234,7 @@ const Gallery = () => {
           pin: true,
           pinSpacing: true,
           anticipatePin: 1,
-          markers: true,
+          // markers: true,
           onUpdate: ({ progress }) => {
             if (state.isAnimating) return;
             const targetSection = getSectionIndex(progress);
