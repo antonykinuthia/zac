@@ -1,0 +1,285 @@
+@import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
+
+@import url('https://fonts.cdnfonts.com/css/centeria-script-demo');
+                
+@import "tailwindcss";
+
+                
+
+:root{
+    --base-100: #fff;
+    --base-200: #e0e2db;
+    --base-300: #141414;
+    --base-400: #0f0f0f;
+    --base-500: #4a4a4a;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
+}
+
+h1,a,p{
+    font-family: "PP Neue Montreal", sans-serif;
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -2%;
+    text-decoration: none;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.preload{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100svh;
+    background-color: var(--base-300);
+    color: var(--base-100);
+    z-index: 2;
+    display: flex;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    will-change: clip-path;
+    overflow: hidden;
+}
+.preload-image{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.preload-img{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 300px;
+    transform: translate(-50%, -50%) scale(0);
+    transform-origin: center center;
+    clip-path: polygon(20% 20%, 80% 20%, 80% 80%, 20% 80%);
+    will-change: clip-path;
+}
+.preload-header{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.preload-header h1{
+    text-transform: uppercase;
+    font-size: clamp(2rem, 10vw, 15rem);
+    line-height: translate(-50%, -50%);
+}
+.preload-header span{
+    font-family: 'Centeria Script Demo', sans-serif;                                          
+}
+.preload-counter{
+    position: absolute;
+    top:-1.5rem;
+    left:calc(100% + 1.5rem);
+    overflow: hidden;
+}
+
+.preload-counter p{
+    color: var(--base-100);
+    font-size: clamp(1rem, 1.5vw, 2rem);
+    line-height: 0.05;
+}
+
+nav{
+    position: fixed;
+    width: 100%;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    z-index: 1;
+}
+.links{
+    display:flex;
+    gap: 2rem;
+}
+nav a{
+    color:var(--base-300);
+    line-height: 1;
+}
+.hero{
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    background-color: var(--base-200);
+    color: var(--base-300);
+    overflow: hidden;
+}
+
+.header{
+    position:absolute;
+    top: 50%;
+    left:50%;
+    display:flex;
+    justify-content: center;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: max-content;
+    overflow: hidden;
+}
+
+.header h1{
+    text-transform: uppercase;
+    font-size: clamp(2.5rem, 15vw, 25rem);
+    line-height: 0.85;
+}
+.header h1 span{
+    font-family: 'Centeria Script Demo', sans-serif;
+}
+
+.hero-footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    padding: 2rem;
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.char,.word, .preload-counter p {
+    transform: translateY(100%);
+    will-change:transform;
+}
+.gallery{
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: var(--base-400);
+    /* background-image: url("../public/photo.jpg"); */
+    color: var(--base-100);
+    overflow: hidden;
+}
+.gallery h1{
+    width: 45%;
+    text-align: center;
+    will-change: opacity;
+    z-index: 2;
+   
+}
+.card{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 250px;
+    height: 300px;
+    border-radius: 1rem;
+    border: 0.5rem solid var(--base-200);
+    box-shadow: 5px 5px 10px rgba(0,0,0, 0.25);
+    will-change: transform;
+    overflow: hidden;
+}
+.card img{
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+.gallerie{
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    background-color: var(--base-300);
+    color: var(--base-100);
+    overflow: hidden;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.project-index p{
+    text-align: center;
+}
+.project-index p, .project-names p{
+    font-size: clamp(3rem, 5vw, 7rem);
+    line-height: 1.25;
+    font-weight: 500;
+}
+.project-names p{
+    color:var(--base-500);
+    transition: color 0.3s ease;
+}
+.project-index h1{
+    text-transform: uppercase;
+    font-size: clamp(3rem, 5vw, 7rem);
+    font-weight: 400;
+    line-height: 1;
+}
+
+.spotlight{
+    position: relative;
+    width: 100%;
+    height: 100svh;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.project-images{
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35%;
+    padding: 50svh 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    z-index: -1;
+}
+
+.project-img{
+    width: 100%;
+    aspect-ratio: 16/9;
+    opacity: 0.5;
+    transition: all 0.32 ease;
+    overflow: hidden;
+}
+.project-names{
+    position: absolute;
+    right: 2rem;
+    bottom: 2rem;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.project-index h1, .project-images, .project-names p{
+    will-change: transform;
+}
+
+@media (max-width: 1000px) {
+    .preload-counter{
+        top: -1.5rem;
+        left: calc(100% + 0.5rem);
+    }
+    .links{
+        flex-direction: column;
+        gap: 0;
+        text-align: right;
+    }
+    .project-images{
+        width: calc(100% - 4rem);
+        gap: 25svh;
+    }
+    
+}
