@@ -2,6 +2,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
+import { onGalleryReady } from "../lib/GalleryReady";
 
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
@@ -15,9 +16,12 @@ const PriceCard = () => {
 
   useGSAP(() => {
     let mm: gsap.MatchMedia | undefined;
+    let priceCardTrigger: ScrollTrigger | undefined; // track only this component's own trigger
+    let handleResize: (() => void) | undefined;
+    let resizeTimer: ReturnType<typeof setTimeout>;
 
     function initAnimation() {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      priceCardTrigger?.kill(); 
       mm?.revert(); 
 
       mm = gsap.matchMedia();
@@ -32,7 +36,7 @@ const PriceCard = () => {
       });
 
       mm.add("(min-width: 1000px)", () => {
-        ScrollTrigger.create({
+        priceCardTrigger = ScrollTrigger.create({
           trigger: containerRef.current, 
           start: "top top",
           end: `+=${window.innerHeight * 4}px`,
@@ -64,7 +68,7 @@ const PriceCard = () => {
               });
             }
 
-         
+            
             if (progress <= 0.25) {
               const widthPercentage = gsap.utils.mapRange(0, 0.25, 75, 60, progress);
               gsap.set(cardContainer.current, {
@@ -81,11 +85,11 @@ const PriceCard = () => {
               gsap.to(cardContainer.current, {
                 gap: "20px",
                 duration: 0.5,
-                ease: "power3.out", 
+                ease: "power3.out",
               });
 
               gsap.to(["#card-1", "#card-2", "#card-3"], {
-                borderRadius: "20px", 
+                borderRadius: "20px",
                 duration: 0.5,
                 ease: "power3.inOut",
               });
@@ -128,7 +132,7 @@ const PriceCard = () => {
                 stagger: 0.25,
               });
 
-              gsap.to(["#card-1", "#card-3"], { 
+              gsap.to(["#card-1", "#card-3"], {
                 y: 30,
                 rotationZ: (i) => [-15, 15][i],
                 duration: 0.75,
@@ -144,7 +148,7 @@ const PriceCard = () => {
                 stagger: -0.1,
               });
 
-              gsap.to(["#card-1", "#card-3"], { 
+              gsap.to(["#card-1", "#card-3"], {
                 y: 0,
                 rotationZ: 0,
                 duration: 0.75,
@@ -158,20 +162,21 @@ const PriceCard = () => {
       });
     }
 
-    initAnimation();
+  
+    const unsubscribe = onGalleryReady(() => {
+      initAnimation();
 
-    let resizeTimer: ReturnType<typeof setTimeout>;
-    const handleResize = () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        initAnimation();
-      }, 250);
-    };
-    window.addEventListener("resize", handleResize);
+      handleResize = () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(initAnimation, 250);
+      };
+      window.addEventListener("resize", handleResize);
+    });
 
-    
     return () => {
-      window.removeEventListener("resize", handleResize);
+      unsubscribe();
+      if (handleResize) window.removeEventListener("resize", handleResize);
+      priceCardTrigger?.kill();
       mm?.revert();
     };
   }, { scope: containerRef });

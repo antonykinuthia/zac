@@ -8,7 +8,8 @@ import { useGSAP } from "@gsap/react";
 import Lenis from 'lenis';
 import Gallery from './components/Gallery';
 import PriceCard from './components/PriceCard';
-// import Projects from './components/Projects';
+import Projects from './components/Projects';
+import Footer from './components/Footer';
 
 
 gsap.registerPlugin(SplitText, ScrollTrigger, CustomEase, useGSAP);
@@ -205,12 +206,13 @@ function App() {
 
       </section>
 
-        {/* <Gallery/> */}
-        {/* <Projects/> */}
+        <Gallery/>
+        <Projects/>
         <PriceCard/>
 
+
         <section className='gallerie'>
-          <h1>Gallery</h1>
+          <Footer/>
         </section>
 
 

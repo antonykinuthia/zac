@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { gsap, ScrollTrigger, useGSAP } from "../lib/Gsap";
+import { markGalleryReady } from "../lib/GalleryReady";
 
 
 type Card = { element: HTMLDivElement; centerX: number; centerY: number };
@@ -263,6 +264,14 @@ const Gallery = () => {
             });
           },
         });
+
+        if (cancelled) return;
+
+       
+        ScrollTrigger.refresh();
+
+       
+        markGalleryReady();
       })();
 
       const onResize = () => updateViewport();

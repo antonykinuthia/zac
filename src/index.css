@@ -211,15 +211,16 @@ img{
     height: 100%;
     object-fit: cover;
 }
-.project-index p{
+.end_text p{
     text-align: center;
-}
-.project-index p, .project-names p{
-    font-size: clamp(3rem, 5vw, 7rem);
-    line-height: 1.25;
-    font-weight: 500;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
 }
 .project-names p{
+    font-size: 1.5rem;
+    line-height: 1.25;
+    font-weight: 500;
     color:var(--base-500);
     transition: color 0.3s ease;
 }
@@ -254,6 +255,7 @@ img{
 .project-img{
     width: 100%;
     aspect-ratio: 16/9;
+    border-radius: 20px;
     opacity: 0.5;
     transition: all 0.32 ease;
     overflow: hidden;
