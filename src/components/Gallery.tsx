@@ -6,7 +6,7 @@ import { markGalleryReady } from "../lib/GalleryReady";
 type Card = { element: HTMLDivElement; centerX: number; centerY: number };
 
 const config = {
-  cardCount: 1,
+  cardCount: 10,
   cardWidth: 250,
   cardHeight: 300,
   animationDuration: 0.75,
@@ -30,7 +30,7 @@ function preloadSet(setNumber: number): Promise<void> {
       const img = new Image();
       img.onload = () => resolve();
       img.onerror = () => resolve(); 
-      img.src = `set${setNumber}/img${i + 1}.webp`;
+      img.src = `new/gallery/set${setNumber}/img${i + 1}.webp`;
     });
   });
 
@@ -116,7 +116,7 @@ const Gallery = () => {
           const img = document.createElement("img");
           img.decoding = "sync"; 
           img.loading = "eager";
-          img.src = `set${setNumber}/img${i + 1}.webp`;
+          img.src = `new/gallery/set${setNumber}/img${i + 1}.webp`;
           media.appendChild(img);
           card.appendChild(media);
 

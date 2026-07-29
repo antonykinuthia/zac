@@ -118,16 +118,16 @@ const Projects = () => {
         <h1>01/20</h1>
       </div>
       <div className='project-images'>
-        <div className="project-img"><img src='/project/photo.jpg' /></div>
-        <div className="project-img"><img src='/project/photo2.jpg' /></div>
-        <div className="project-img"><img src='/project/photo3.jpg'/></div>
-        <div className="project-img"><img src='/project/photo4.jpg' /></div>
-        <div className="project-img"><img src='/project/photo5.jpg' /></div>
-        <div className="project-img"><img src='/project/photo6.jpg' /></div>
-        <div className="project-img"><img src='/project/photo7.jpg' /></div>
-        <div className="project-img"><img src='/project/photo8.jpg' /></div>
-        <div className="project-img"><img src='/project/photo9.jpg' /></div>
-        <div className="project-img"><img src='/project/photo10.jpg' /></div>
+        <div className="project-img"><img src='/new/project/photo.webp' /></div>
+        <div className="project-img"><img src='/new/project/photo2.webp' /></div>
+        <div className="project-img"><img src='/new/project/photo3.webp'/></div>
+        <div className="project-img"><img src='/new/project/photo4.webp' /></div>
+        <div className="project-img"><img src='/new/project/photo5.webp' /></div>
+        <div className="project-img"><img src='/new/project/photo6.webp' /></div>
+        <div className="project-img"><img src='/new/project/photo7.webp' /></div>
+        <div className="project-img"><img src='/new/project/photo8.webp' /></div>
+        <div className="project-img"><img src='/new/project/photo9.webp' /></div>
+        <div className="project-img"><img src='/new/project/photo10.webp' /></div>
       </div>
       <div className='project-names'>
         <p>Night Visuals</p>

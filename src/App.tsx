@@ -165,14 +165,14 @@ function App() {
       
       <div className="preload">
         <div className="preload-image">
-          <div className="preload-img"><img src='/photo.jpg' alt=''/></div>
-          <div className="preload-img"><img src='/photo2.jpg' alt=''/></div>
-          <div className="preload-img"><img src='/photo3.jpg' alt=''/></div>
-          <div className="preload-img"><img src='/photo4.jpg' alt=''/></div>
-          <div className="preload-img"><img src='/photo5.jpg' alt=''/></div>
+          <div className="preload-img"><img src='/new/loader/photo.webp' alt=''/></div>
+          <div className="preload-img"><img src='/new/loader/photo2.webp' alt=''/></div>
+          <div className="preload-img"><img src='/new/loader/photo3.webp' alt=''/></div>
+          <div className="preload-img"><img src='/new/loader/photo4.webp' alt=''/></div>
+          <div className="preload-img"><img src='/new/loader/photo5.webp' alt=''/></div>
         </div>
         <div className="preload-header">
-          <h1>Galleri<span>e</span></h1>
+          <h1>Alph<span>a</span></h1>
 
           <div className="preload-counter">
             <p ref={loadRef}
@@ -183,7 +183,7 @@ function App() {
 
       <nav>
         <div className="logo">
-          <a href='#'>Gallerie</a>
+          <a href='#'>Alpha Media</a>
         </div>
 
         <div className="links">
@@ -195,7 +195,8 @@ function App() {
 
       <section className="hero">
         <div className="header">
-          <h1>Galleri<span>e</span></h1>
+          <h1>Alph<span>a</span></h1>
+          <h1>medi<span>a</span></h1>
         </div>
 
         <div className="hero-footer">
