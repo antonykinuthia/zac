@@ -122,7 +122,7 @@ const Projects = () => {
         <div className="project-img"><img src='/new/project/photo2.webp' /></div>
         <div className="project-img"><img src='/new/project/photo3.webp'/></div>
         <div className="project-img"><img src='/new/project/photo4.webp' /></div>
-        <div className="project-img"><img src='/new/project/photo5.webp' /></div>
+        <div className="project-img"><img src='/new/gallery/set4/photo5.webp' /></div>
         <div className="project-img"><img src='/new/project/photo6.webp' /></div>
         <div className="project-img"><img src='/new/project/photo7.webp' /></div>
         <div className="project-img"><img src='/new/project/photo8.webp' /></div>

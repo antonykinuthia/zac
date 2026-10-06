@@ -1,6 +1,8 @@
 @import url('https://fonts.cdnfonts.com/css/pp-neue-montreal');
 
 @import url('https://fonts.cdnfonts.com/css/centeria-script-demo');
+
+@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&display=swap');
                 
 @import "tailwindcss";
 
@@ -15,6 +17,10 @@
     --card-1:#b2b2b2;
     --card-2: #ce2017;
     --card-3: #2f2f2f;
+    --color-100: #fdf2bd;
+    --color-200: #a8a07a;
+    --color-300:#fe973d;
+    --color-400: #28201d;
 }
 
 *{
@@ -155,44 +161,228 @@ nav a{
     transform: translateY(100%);
     will-change:transform;
 }
-.gallery{
+
+h1,h3{
+    font-family: "Gaseok One";
+    font-weight: lighter;
+    letter-spacing:-1%;
+    line-height: 1;
+}
+
+h3{
+    font-size:clamp(1.5rem, 6vw, 10rem);
+}
+
+.spotlight{
     position: relative;
     width: 100%;
     height: 100svh;
+    padding: 2rem;
+    overflow: hidden;
+}
+
+.spotlight-container{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 10rem 2rem;
+    border-radius: 4rem;
+    background-color: #0f0f0f;
+    color:#fff;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align:center;
+}
+
+.spotlight-container p{
+    font-size: clamp(1rem, 2vw, 2rem);
+}
+
+.spotlight-stage{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+.spotlight-list{
+    position: relative;
+    z-index: 1;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.spotlight-item{
+    position: relative;
+    width: 100%;
     display:flex;
     justify-content: center;
     align-items: center;
-    align-content: center;
-    background-color: var(--base-400);
-    /* background-image: url("../public/photo.jpg"); */
-    color: var(--base-100);
-    overflow: hidden;
+    will-change:height;
 }
-.gallery h1{
-    width: 45%;
-    text-align: center;
-    will-change: opacity;
-    z-index: 2;
-   
+
+.spotlight-item .label{
+    position: relative;
+    display: grid;
+    place-items: center;
 }
-.card{
-    position: absolute;
-    top:0;
-    left:0;
-    width: 250px;
-    height: 300px;
-    border-radius: 1rem;
-    border: 0.5rem solid var(--base-200);
-    box-shadow: 5px 5px 10px rgba(0,0,0, 0.25);
-    will-change: transform;
-    overflow: hidden;
+
+.spotlight-item .label h3{
+    grid-area: 1/1;
+    will-change: transform, opacity, filter;
 }
-.card img{
+
+.spotlight-item .label .label-alt{
+    font-family: "Centeria Script Demo";
+    font-size: clamp(2rem, 8vw, 12rem);
+    line-height: 0.65;
+    transform: translateY(15%);
+    letter-spacing: -4%;
+    opacity: 0;
+}
+.services{
+    position: relative;
     width: 100%;
-    height:100%;
-    object-fit: cover;
-    border-radius: 0.5rem;
+    height:100svh;
+    padding: 2rem;
+    overflow: hidden;
+    background: var(--color-400);
+    color: var(--color-300);
+    display: flex;
+    gap: 2rem;
 }
+
+.service-copy, .service-cards{
+    flex: 1;
+}
+
+.service-copy{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.service-copy p{
+    width: 65%;
+    text-align: center;
+    color: var(--color-200);
+}
+
+.service-cards{
+    position: relative;
+    perspective: 1200px;
+}
+
+.service-cards .service-card{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    height: 70%;
+    aspect-ratio: 4/5;
+    padding: 2rem;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    color: var(--color-100);
+    background-size: cover;
+    background-position: center;
+    will-change: transform;
+}
+
+.service-cards .service-card::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.25);
+    pointer-events: none;
+}
+
+.service-cards .service-card h3{
+    position: relative;
+    z-index:1;
+}
+
+.service-card#card-1{
+    background-image: url(/new/gallery/set4/photo8.webp);
+    z-index:6;
+}
+
+.service-card#card-2{
+    background-image: url(/new/gallery/set4/photo9.webp);
+    z-index:5;
+}
+
+.service-card#card-3{
+    background-image: url(/new/gallery/set4/photo10.webp);
+    z-index:4;
+}
+
+.service-card#card-4{
+    background-image: url(/new/gallery/set4/photo6.webp);
+    z-index:3;
+}
+
+.service-card#card-5{
+    background-image: url(/new/gallery/set4/photo7.webp);
+    z-index:2;
+}
+
+.services h1, h3{
+    font-size: clamp(1.5rem, 3vw, 4.5rem);
+}
+
+.cards{
+  position: absolute;
+  inset: 0;
+  z-index:2;
+  pointer-events: none;
+}
+.cards img{
+    position: absolute;
+    width: clamp(75px, 15vw, 200px);
+    aspect-ratio: 2/3;
+    border: 0.25rem solid #fff;
+    border-radius: 1rem;
+    object-fit:cover;
+    height: max-content;
+}
+
+.CARD{
+    position: absolute;
+    width: clamp(75px, 15vw, 200px);
+    aspect-ratio: 2/3;
+    border: 0.25rem solid #fff;
+    border-radius: 1rem;
+    object-fit:cover;
+    transform: scale(0);
+    will-change: transform;
+}
+
+.CARD-1{
+    top: 5%;
+    left: 7.5%;
+}
+.CARD-2{
+    top: 7.5%;
+    right: 7.5%;
+}
+.CARD-3{
+    bottom: 12.5%;
+    left: 12.5%;
+}
+.CARD-4{
+    bottom: 15%;
+    right: 12.5%;
+}
+
 .gallerie{
     position: relative;
     width: 100%;
@@ -290,6 +480,7 @@ img{
     justify-content: center;
     align-items: center;
 }
+
 
 .sticky-header{
     position: absolute;
@@ -410,6 +601,16 @@ img{
         width: 100%;
         flex-direction: column;
         gap: 2rem;
+    }
+
+    .services{
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .service-cards .service-card{
+        height: auto;
+        width: 70%;
     }
 
     .carD{

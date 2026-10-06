@@ -184,7 +184,7 @@ const PriceCard = () => {
   return (
     <section className="sticky" ref={containerRef}>
       <div className="sticky-header">
-        <h1 ref={stickyHeaderText}> Our Pricing Plan</h1>
+        <h1 ref={stickyHeaderText}> Contact Us</h1>
       </div>
 
       <div className="card-container" ref={cardContainer}>
@@ -194,7 +194,7 @@ const PriceCard = () => {
           </div>
           <div className="card-back">
             <span>( 01 ) </span>
-            <p>Lorem ipsum dolor sit amet</p>
+            <p>Enjoyed  the journey beyond your expectations</p>
           </div>
         </div>
 
@@ -203,9 +203,9 @@ const PriceCard = () => {
             <img src="/part2.png" alt="" />
           </div>
           <div className="card-back">
-            {/* <a>Most Popular</a> */}
+           
             <span>( 02 ) </span>
-            <p>Lorem ipsum dolor sit amet</p>
+            <p>Let's redefine creativity together</p>
           </div>
         </div>
 
@@ -215,7 +215,7 @@ const PriceCard = () => {
           </div>
           <div className="card-back">
             <span>( 03 ) </span>
-            <p>Lorem ipsum dolor sit amet</p>
+            <p>Zacsgrapher@gmail.com</p>
           </div>
         </div>
       </div>
