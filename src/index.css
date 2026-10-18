@@ -41,6 +41,7 @@ img{
     height: 100%;
     object-fit: cover;
 }
+
 .preload{
     position: fixed;
     top: 0;
@@ -51,10 +52,11 @@ img{
     color: var(--base-100);
     z-index: 2;
     display: flex;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    will-change: clip-path;
+    will-change: transform;
     overflow: hidden;
 }
+
+
 .preload-image{
     position: absolute;
     top: 0;
@@ -83,6 +85,7 @@ img{
     text-transform: uppercase;
     font-size: clamp(2rem, 10vw, 15rem);
     line-height: translate(-50%, -50%);
+    
 }
 .preload-header span{
     font-family: 'Centeria Script Demo', sans-serif;                                          
@@ -98,6 +101,7 @@ img{
     color: var(--base-100);
     font-size: clamp(1rem, 1.5vw, 2rem);
     line-height: 0.05;
+    visibility: hidden;
 }
 
 nav{
