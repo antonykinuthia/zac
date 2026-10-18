@@ -2,30 +2,34 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import { useRef } from "react";
+import { Link } from "react-router-dom";
 import { onGalleryReady } from "../lib/GalleryReady";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+const END_TEXT_FADE_START = 0.92;
 
 const Projects = () => {
   const container = useRef<HTMLElement | null>(null);
+  const endTextRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
-    
+
     const spotlightSection = container.current;
     if (!spotlightSection) return;
 
     let trigger: ScrollTrigger | undefined;
 
-    
+
     const unsubscribe = onGalleryReady(() => {
-    
+
       const projectIndex = spotlightSection.querySelector<HTMLElement>('.project-index h1');
       const projectImagesContainer = spotlightSection.querySelector<HTMLElement>('.project-images');
       const projectNamesContainer = spotlightSection.querySelector<HTMLElement>('.project-names');
       const projectImgs = spotlightSection.querySelectorAll<HTMLElement>('.project-img');
       const projectNames = spotlightSection.querySelectorAll<HTMLElement>('.project-names p');
+      const endText = endTextRef.current;
 
-   
+
       if (!projectIndex || !projectImagesContainer || !projectNamesContainer) return;
 
       const totalProjectCount = projectNames.length;
@@ -41,11 +45,15 @@ const Projects = () => {
       const moveDistanceImages = window.innerHeight - imagesHeight;
       const imgActivationThreshold = window.innerHeight / 2;
 
-     
+      
+      if (endText) {
+        gsap.set(endText, { opacity: 0, pointerEvents: "none" });
+      }
+
 
 
       trigger = ScrollTrigger.create({
-        trigger: spotlightSection, 
+        trigger: spotlightSection,
         start: 'top top',
         end: `+=${window.innerHeight * 2}px`,
         pin: true,
@@ -55,7 +63,7 @@ const Projects = () => {
         const progress = self.progress;
         const currentIndex = Math.min(Math.floor(progress * totalProjectCount) + 1, totalProjectCount);
 
- 
+
         if (projectIndex) {
           projectIndex.textContent = `${String(currentIndex).padStart(2, "0")}/${String(totalProjectCount).padStart(2, "0")}`;
         }
@@ -99,6 +107,18 @@ const Projects = () => {
           }
         });
 
+        if (endText) {
+          const fadeProgress = gsap.utils.clamp(
+            0,
+            1,
+            gsap.utils.mapRange(END_TEXT_FADE_START, 1, 0, 1, progress),
+          );
+          gsap.set(endText, {
+            opacity: fadeProgress,
+            pointerEvents: fadeProgress > 0.5 ? "auto" : "none",
+          });
+        }
+
         },
       });
       ScrollTrigger.refresh();
@@ -112,8 +132,8 @@ const Projects = () => {
 
   return (
     <section className='spotlight' ref={container}>
-    
-      
+
+
       <div className='project-index'>
         <h1>01/20</h1>
       </div>
@@ -130,19 +150,19 @@ const Projects = () => {
         <div className="project-img"><img src='/new/project/photo10.webp' /></div>
       </div>
       <div className='project-names'>
-        <p>Night Visuals</p>
+        <p>Food Perspective</p>
         <p>Lost in the wild</p>
-        <p>untamed wildernes</p>
-        <p>New perspective</p>
-        <p>Split The lines</p>
+        <p>untamed taste</p>
+        <p>nature's call</p>
+        <p>sky high</p>
         <p>Unmatched Beauty</p>
         <p>Untapped Ideas</p>
-        <p>Blue haze</p>
-        <p>Blinding Lights</p>
+        <p>green haze</p>
         <p>In The action</p>
+        <p>whimsical</p>
       </div>
-      <div className='end_text'>
-         <p>A curated collection of my work</p>
+      <div className='end_text' ref={endTextRef}>
+         <p><Link to="/gallery">A curated collection of my work</Link></p>
       </div>
     </section>
   );

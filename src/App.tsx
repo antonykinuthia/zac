@@ -189,10 +189,6 @@ function App() {
       <Projects />
       <Services/>
       <PriceCard />
-
-      <section className='gallerie'>
-        <Footer />
-      </section>
     </div>
   )
 }
